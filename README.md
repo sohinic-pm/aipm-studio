@@ -98,7 +98,9 @@ drafts/  posted/          work in progress, and what's live
 - **First live run:** week of 23 Nov. Experiment: does a who-it's-for line at
   10-12s move profile visits? (pass line: 3 per reel)
 - **Goal:** 2 follows per 100 weekly viewers, 40+ followers by 6 Dec 2026.
-- **Hook eval (23 Nov 2026):** reel-reviewer scored 59% (10/17) exact agreement on a
-  17-hook set with 2 real winners. See [`evals/README.md`](evals/README.md).
+- **Hook eval (23 Nov 2026):** tested the reviewer on the same 17 hooks its own
+  rules were built from — it did fine on the familiar ones, no better than
+  guessing on the rest. Not proof it works yet; `/review-24h` is now building a
+  real forward test, one reel at a time. See [`evals/README.md`](evals/README.md).
 
 Results and eval scores will be added here as they come in.

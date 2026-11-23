@@ -17,7 +17,23 @@ it to catch a reviewer that's clearly miscalibrated (for example, it rates the
 jargon and "FREE" hooks as winners), not to claim precision. Grow the set every
 week: each reviewed reel becomes a new row.
 
+## Limits
+This set is also the data the playbook's hook rules were built from — running
+the reviewer against it is an **in-sample check, not a validation**.
+
+- On the 7 hooks the playbook already names or builds a rule on (the winners
+  and losing patterns in `hook-formulas.md`), the reviewer got **6/7**.
+- On the other 10, novel to those rules, it got **4/10** — worse than the
+  **7/10** you'd get by always guessing "average".
+- Of its 4 "won" calls, **2 were wrong**.
+
+The real test is forward prediction: does the reviewer's call, made before a
+reel posts and recorded in that reel's `review.md`, match the real result
+logged 24 hours later? `/review-24h` now logs every one of those as a new row
+in `hook-eval-set.csv`, marked `forward` in a `source` column. Only that
+growing set can tell us whether the reviewer generalizes.
+
 ## Results log
 | Date | Reviewer version | Exact agreement | Winners found | Notes |
 |---|---|---|---|---|
-| 2026-11-23 | reel-reviewer v1 | 59% (10/17) | 2/2 | Missed average-tier hooks most (4/8); every miss on an actual "lost" hook was an over-rating, never under |
+| 2026-11-23 | reel-reviewer v1 | 59% (10/17) | 2/2 | In-sample baseline, not a validation (see Limits): 6/7 on playbook-derived hooks, 4/10 on the rest |
