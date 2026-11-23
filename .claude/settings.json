@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/scorecard.py:*)",
+      "Bash(python3 scripts/score_eval.py:*)"
+    ],
+    "deny": [
+      "Read(./evals/hook-eval-set.csv)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/scripts/guard_posted.py"
+          }
+        ]
+      }
+    ]
+  }
+}

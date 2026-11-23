@@ -1,0 +1,24 @@
+date,date_approx,title,format,pillar,views,non_follower_pct,likes,saves,shares,profile_visits,follows,skip_rate_pct,avg_watch_pct,notes
+2026-10-22,no,Temperature (same prompt new answer),carousel,ai-concept,14,7,2,0,0,0,0,,,
+2026-10-23,no,AI told people to put glue on pizza,reel,ai-concept,151,90,3,0,0,0,0,,,story most viewers had seen
+2026-10-24,no,AI charges Indian languages more,reel,ai-concept,129,91,3,0,0,0,0,,,India angle; week 1 before account history
+2026-10-25,yes,Plot twist: Sam was an AI (Cursor),reel,ai-news,143,96,2,0,0,0,0,,,AI fail
+2026-10-26,yes,AI forgot (I'm vegetarian),reel,ai-concept,268,95,4,0,0,0,0,,,
+2026-10-27,no,Intro: weird AI explained in a min,reel,brand,119,86,4,0,0,0,0,,,brand-first opener
+2026-10-28,no,Hidden messages in CVs,carousel,ai-news,24,0,2,0,0,0,0,,,
+2026-10-30,yes,The AI bubble (China),reel,ai-news,241,92,6,0,0,0,0,,,
+2026-10-31,yes,Tokenmaxxing,reel,ai-news,2050,98.5,9,2,0,0,0,,,breakout; coined word + big number
+2026-11-01,yes,But why? Markets fell in 3 countries,reel,ai-news,613,97,10,1,0,0,0,,,breakout; why-card
+2026-11-01,no,She lost Rs 97000 (voice scam),reel,ai-news,205,90,5,0,0,0,0,,,AI fail; India
+2026-11-02,yes,AI re-interview (Proton),reel,ai-news,267,92,6,0,0,0,0,,,
+2026-11-03,yes,Tell AI a terrible idea,reel,ai-concept,233,93,5,0,0,0,0,,,
+2026-11-04,no,40 angry reviews (PM Toolkit Ep 1),reel,pm,294,73,4,0,1,0,0,,,interactions/viewer 3.9%
+2026-11-05,no,That's not a ticket yet (PM Toolkit Ep 2),reel,pm,138,95,4,1,0,0,0,,,interactions/viewer 7.6%; jargon hook
+2026-11-06,no,3400+ real Google & Meta PM questions (PM Toolkit Ep 3),reel,pm,128,91,5,1,0,0,0,,,interactions/viewer 7.0%; FREE in hook
+2026-11-09,no,Air Canada blamed its own chatbot,reel,ai-news,259,97,1,0,0,0,0,,,AI fail; known 2024 story
+2026-11-12,no,Top 4 AI skills for PMs in 2026,reel,pm,175,95,1,1,1,0,0,,,
+2026-11-13,no,AI chip leader resigned,carousel,ai-news,16,0,2,0,0,0,0,,,
+2026-11-17,no,Same model as ChatGPT (NotebookLM),reel,ai-concept,202,94,3,0,0,0,0,,,
+2026-11-18,no,Microsoft didn't get hacked. It broke itself,carousel,ai-news,35,3,2,0,0,0,0,,,AI fail
+2026-11-19,no,80% of AI PM jobs? Regular PM jobs,carousel,pm,25,8,2,0,0,0,0,,,remake as reel
+2026-11-20,no,PM interview: Revenue fell 20%,reel,pm,4,,2,,,,,,,posted 20 Nov; read same day; needs 24h review
