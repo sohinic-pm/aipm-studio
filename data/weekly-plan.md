@@ -4,6 +4,25 @@ Each week starts as `(DRAFT)` from the strategist and becomes `(APPROVED <date>)
 after Gate 1. Every reel carries the week's fixes: who-it's-for line at 10-12s,
 one `[FIRST-PERSON]` line, keyword START.
 
+### Niche scan gaps (23 Nov 2026 scan, see `data/competitors.md`)
+1. No page scanned turns a dated, sourced AI-industry story into a 30-second
+   PM lesson. @aiforambitious and @aiwithunnati run general AI-tool/coding
+   tips; the PM-focused pages (@tech.withrudra, @produxtmanager,
+   @productsandbox, @productplaybook_) run interview prep, resource
+   roundups, or lifestyle content instead. This is our AI-fail/AI-news
+   pillar — nobody else owns it, keep leaning into it.
+2. Nobody scanned shows unfinished, in-progress PM work. @produxtmanager and
+   @productsandbox package themselves as a finished authority (listicles,
+   polished mock interviews); none shows a messy backlog or a half-built
+   doc. Our "build in public" format has room to be the only one showing
+   the work, not just the output.
+3. The highest-reach lead-gen pages (@tech.withrudra, @aiwithunnati) run
+   "Follow + comment KEYWORD" on nearly every reel with no first-person
+   voice attached to the claim; @productsandbox's interview-coach reels
+   have no first-person PM voice either. A page that both cites its source
+   and speaks in the creator's own first-person line is a gap — matches
+   our `[FIRST-PERSON]` rule already.
+
 ## Week of 23 Nov 2026 (DRAFT from the 20 Nov audit)
 Experiment: who-it's-for line at 10-12s. Metric: profile visits per reel. Pass: 3.
 
