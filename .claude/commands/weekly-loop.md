@@ -10,6 +10,8 @@ Run the weekly content loop. Today is the start of the planning week.
    watch time from the app) and ask her to paste those numbers. Add them to the
    tracker when she does.
 3. Use the **strategist** agent to draft next week's plan in `data/weekly-plan.md`.
+   It first runs a niche scan against `data/competitors.md` (via Claude in
+   Chrome) and logs any gaps it finds into the plan before drafting.
 4. **STOP. Gate 1.** Show Sohini the draft plan as a table and ask her to approve,
    edit or swap items. Do not write any scripts until she says the plan is approved.
 5. When she approves, change the heading from `(DRAFT)` to `(APPROVED <date>)`,
