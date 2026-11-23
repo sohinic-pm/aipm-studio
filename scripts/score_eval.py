@@ -32,17 +32,16 @@ def make_blind():
     print(f"Wrote {BLIND.relative_to(ROOT)} ({len(rows)} hooks, outcomes removed)")
 
 
-def score(path):
-    gold = {r["id"]: r for r in read(GOLD)}
-    preds = {r["id"]: r["predicted"].strip().lower() for r in read(path)}
-    bad = sorted(set(preds) - set(gold)) + [i for i, p in preds.items() if p not in LABELS]
-    if bad:
-        sys.exit(f"Unknown ids or labels in results: {bad}")
-    missing = sorted(set(gold) - set(preds))
-
-    pairs = [(gold[i]["label"], preds[i]) for i in gold if i in preds]
+def report(title, ids, gold, preds):
+    """Print one scored section for the given hook ids against preds (id -> label)."""
+    print(f"== {title} ==")
+    missing = sorted(set(ids) - set(preds))
+    pairs = [(gold[i]["label"], preds[i]) for i in ids if i in preds]
+    print(f"Scored {len(pairs)} of {len(ids)} hooks" + (f" (missing: {', '.join(missing)})" if missing else ""))
+    if not pairs:
+        print()
+        return
     exact = sum(g == p for g, p in pairs)
-    print(f"Scored {len(pairs)} of {len(gold)} hooks" + (f" (missing: {', '.join(missing)})" if missing else ""))
     print(f"Exact agreement: {exact}/{len(pairs)} = {exact / len(pairs) * 100:.0f}%")
     print("(Always guessing 'average' would score "
           f"{sum(g == 'average' for g, _ in pairs)}/{len(pairs)}: beat that.)\n")
@@ -52,18 +51,46 @@ def score(path):
     for g in LABELS:
         print(f"  {g:<9}" + "".join(f"{sum(1 for a, b in pairs if a == g and b == p):>9}" for p in LABELS))
 
-    won = [i for i in gold if gold[i]["label"] == "won" and i in preds]
+    won = [i for i in ids if gold[i]["label"] == "won" and i in preds]
     found = [i for i in won if preds[i] == "won"]
     print(f"\nWinners found: {len(found)}/{len(won)}")
-    false_wins = [i for i in gold if i in preds and preds[i] == "won" and gold[i]["label"] == "lost"]
+    false_wins = [i for i in ids if i in preds and preds[i] == "won" and gold[i]["label"] == "lost"]
     if false_wins:
         print("Rated 'won' but actually lost:")
         for i in false_wins:
             print(f"  {i}  {gold[i]['first_frame']}  ({gold[i]['views']} views)")
     print("\nMisses:")
-    for i in gold:
-        if i in preds and preds[i] != gold[i]["label"]:
-            print(f"  {i}  predicted {preds[i]:<8} real {gold[i]['label']:<8} {gold[i]['first_frame']}")
+    misses = [i for i in ids if i in preds and preds[i] != gold[i]["label"]]
+    if not misses:
+        print("  (none)")
+    for i in misses:
+        print(f"  {i}  predicted {preds[i]:<8} real {gold[i]['label']:<8} {gold[i]['first_frame']}")
+    print()
+
+
+def score(path):
+    gold = {r["id"]: r for r in read(GOLD)}
+    preds = {r["id"]: r["predicted"].strip().lower() for r in read(path)}
+    bad = sorted(set(preds) - set(gold)) + [i for i, p in preds.items() if p not in LABELS]
+    if bad:
+        sys.exit(f"Unknown ids or labels in results: {bad}")
+
+    in_sample_ids = [i for i in gold if gold[i].get("source", "in-sample") != "forward"]
+    forward_ids = [i for i in gold if gold[i].get("source") == "forward"]
+
+    report("In-sample (built the playbook's rules - see evals/README.md Limits)",
+           in_sample_ids, gold, preds)
+
+    if not forward_ids:
+        print("== Forward (real predictions, logged before the result was known) ==")
+        print("No forward rows yet.")
+        return
+    fwd_preds = {i: gold[i].get("predicted", "").strip().lower() for i in forward_ids}
+    fwd_preds = {i: p for i, p in fwd_preds.items() if p}
+    bad_fwd = [i for i, p in fwd_preds.items() if p not in LABELS]
+    if bad_fwd:
+        sys.exit(f"Unknown labels in hook-eval-set.csv 'predicted' column: {bad_fwd}")
+    report("Forward (real predictions, logged before the result was known)", forward_ids, gold, fwd_preds)
 
 
 def main():

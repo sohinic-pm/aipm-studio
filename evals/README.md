@@ -6,9 +6,14 @@ actually won?
 **Set:** all 17 reels from 22 Oct to 17 Nov 2026, with their real views.
 Labels use one rule: **won** ≥ 500 views, **average** 200-499, **lost** < 200.
 
-**Blind by design:** the reviewer sees only `blind-hooks.csv` (id + first frame).
-`.claude/settings.json` denies Claude read access to `hook-eval-set.csv`, so the
-outcomes can't leak into its predictions. Only `scripts/score_eval.py` reads them.
+**Blind by design, only partly enforced:** the reviewer is given only
+`blind-hooks.csv` (id + first frame) and instructed not to open `data/tracker.csv`
+or any other outcome data. Only one side of that is a technical control:
+`.claude/settings.json` hard-blocks Claude's read access to `hook-eval-set.csv`
+itself, so the answer key can't leak in. `tracker.csv` is **not** blocked —
+other agents (insights-analyst, strategist, `scorecard.py`) need to read it —
+so blindness to it rests on the reviewer following its instructions, not on a
+permission the system enforces. Only `scripts/score_eval.py` reads `hook-eval-set.csv`.
 
 **Run:** `/eval-hooks` in Claude Code. Results go in `results/<date>.csv`.
 
