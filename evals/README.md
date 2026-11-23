@@ -20,3 +20,4 @@ week: each reviewed reel becomes a new row.
 ## Results log
 | Date | Reviewer version | Exact agreement | Winners found | Notes |
 |---|---|---|---|---|
+| 2026-11-23 | reel-reviewer v1 | 59% (10/17) | 2/2 | Missed average-tier hooks most (4/8); every miss on an actual "lost" hook was an over-rating, never under |
